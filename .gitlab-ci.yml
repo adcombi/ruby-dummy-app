@@ -1,8 +1,6 @@
-image: ruby:2.2.3-onbuild
-
-job1:
-  stage: build
+production:
+  type: deploy
   script:
-    - bundle exec rackup -p 5000
+  - bundle exec rackup -p 5000
   only:
-    - master
+  - master
