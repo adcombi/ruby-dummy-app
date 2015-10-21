@@ -3,9 +3,14 @@ image: ruby:2.2.3
 before_script:
   - bundle install
 
+test:
+  stage: test
+  script:
+  - bundle exec rake test
+
 production:
-  stage: build
+  type: deploy
   script:
   - bundle exec rackup -p 5000
   only:
-  - master
+  - tags
