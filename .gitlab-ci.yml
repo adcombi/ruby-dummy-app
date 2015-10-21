@@ -12,6 +12,8 @@ production:
     - "echo Branch/Tag: $CI_BUILD_REF_NAME"
     - "echo Commit: $CI_BUILD_REF"
     - "echo CI Build: $CI_BUILD_ID"
+    - "export SHORT_SHA=$(echo $CI_BUILD_REF |cut -c1-8)"
+    - "echo Short SHA: $SHORT_SHA"
     - docker build -t registry.adcombi.com:5000/ruby-dummy-app:branch.$CI_BUILD_REF_NAME-commit.$CI_BUILD_REF-build.$CI_BUILD_ID .
     - docker push registry.adcombi.com:5000/ruby-dummy-app:branch.$CI_BUILD_REF_NAME-commit.$CI_BUILD_REF-build.$CI_BUILD_ID
   only:
