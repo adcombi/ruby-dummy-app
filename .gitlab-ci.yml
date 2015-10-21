@@ -10,7 +10,7 @@ production:
   type: deploy
   script:
     - docker build -t registry.adcombi.com:5000/ruby-dummy-app:branch.$CI_BUILD_REF_NAME_commit.$CI_BUILD_REF_build.$CI_BUILD_ID .
-    - docker push registry.adcombi.com:5000/ruby-dummy-app::branch.$CI_BUILD_REF_NAME_commit.$CI_BUILD_REF_build.$CI_BUILD_ID
+    - docker push registry.adcombi.com:5000/ruby-dummy-app:branch.$CI_BUILD_REF_NAME_commit.$CI_BUILD_REF_build.$CI_BUILD_ID
   only:
   - master
   tags:
