@@ -9,9 +9,8 @@ test:
 production:
   type: deploy
   script:
-    - echo $CI_BUILD_ID
-    - $(docker build -t registry.adcombi.com:5000/ruby-dummy-app:build-$CI_BUILD_ID .)
-    - $(docker push registry.adcombi.com:5000/ruby-dummy-app:build-$CI_BUILD_ID)
+    - docker build -t registry.adcombi.com:5000/ruby-dummy-app:build-$CI_BUILD_ID .
+    - docker push registry.adcombi.com:5000/ruby-dummy-app:build-$CI_BUILD_ID
   only:
   - master
   tags:
