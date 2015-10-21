@@ -16,4 +16,6 @@ Deamonize the container
 $ docker run -d --rm ruby-dummy-app
 ```
 
+https://github.com/travis-ci/dpl
 
+ruby-onbuild kan niet -> zoek het daarin
