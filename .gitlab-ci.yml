@@ -1,5 +1,10 @@
+image: ruby:2.2.3
+
+before_script:
+  - “bundle install”
+
 production:
-  type: deploy
+  stage: build
   script:
   - bundle exec rackup -p 5000
   only:
