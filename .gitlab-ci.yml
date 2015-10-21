@@ -1,16 +1,17 @@
-image: ruby:2.2.3
-
-before_script:
-  - bundle install
-
 test:
   stage: test
   script:
+  - bundle install
   - bundle exec rake test
+  tags:
+  - ruby2.2.3
 
 production:
   type: deploy
   script:
-  - bundle exec rackup -p 5000
+    - docker build -t registry.adcombi.com:5000/ruby-dummy-app .
+    - docker push registry.adcombi.com:5000/ruby-dummy-app
   only:
-  - tags
+  - master
+  tags:
+  - privileged
